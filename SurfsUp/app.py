@@ -81,7 +81,7 @@ def precipitation():
 @app.route("/api/v1.0/stations")
 def stations():
     
-    # Create our session (link) from Python to the DB
+    # Create session (link) from Python to the DB
     session = Session(engine)
     
     # Preform a query to retrieve data for all stations
@@ -106,7 +106,7 @@ def stations():
 @app.route("/api/v1.0/tobs")
 def tobs():
     
-    # Create our session (link) from Python to the DB
+    # Create session (link) from Python to the DB
     session = Session(engine)
     
     # Calculate the date one year from the last date in data set.
@@ -131,7 +131,7 @@ def tobs():
 @app.route("/api/v1.0/<start>")
 def start(start):
 
-    # Create our session (link) from Python to the DB
+    # Create session (link) from Python to the DB
     session = Session(engine)
     
     # Preform a query to retrieve the minimum, maximum, and average temperature for a specified start date to the end of the dataset
@@ -169,7 +169,7 @@ def range_date(start,end):
     range_date = []
     for min, max, avg in query_results:
         range_dict = {}
-        range_dict["Minimum Temperature"] = min
+        range_dict["Min Temperature"] = min
         range_dict["Maxium Temperature"] = max
         range_dict["Average Temperature"] = avg
         range_date.append(range_dict)
