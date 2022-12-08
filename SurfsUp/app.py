@@ -34,14 +34,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def homepage():
-    """List all available api routes."""
+    """List all api routes."""
     return (
-        f"Welcome to the Hawaii Climate Analysis Homepage. Here are the Available Routes:<br/>"
+        f"Welcome to the Hawaii Climate Analysis Homepage. Here are the API Routes:<br/>"
         f"<br/>"
         f"Precipitation Data for One Year:<br/>"
         f"/api/v1.0/precipitation<br/>"
         f"<br/>"
-        f"List of Active Weather Stations:<br/>"
+        f"List of Active Stations:<br/>"
         f"/api/v1.0/stations<br/>"
         f"<br/>"
         f"Temperature Observations of the Most-Active Station for One Year:<br/>"
@@ -57,7 +57,7 @@ def homepage():
 @app.route("/api/v1.0/precipitation")
 def precipitation():
     
-    # Create our session (link) from Python to the DB
+    # Create session (link) from Python to the DB
     session = Session(engine)
     
     # Calculate the date one year from the last date in data set.
@@ -155,7 +155,7 @@ def start(start):
 @app.route("/api/v1.0/<start>/<end>")
 def range_date(start,end):
     
-    # Create our session (link) from Python to the DB
+    # Create session (link) from Python to the DB
     session = Session(engine)
     
     # Preform a query to retrieve the minimum, maximum, and average temperature for a specified start date to the end of the dataset
